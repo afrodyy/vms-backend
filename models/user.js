@@ -14,47 +14,51 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notEmpty: {
             args: true,
-            msg: "Name cannot be empty",
+            msg: "Name tidak boleh kosong",
           },
           notNull: {
             args: true,
-            msg: "Name cannot be null",
+            msg: "Name tidak boleh kosong",
           },
         },
       },
       username: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: {
+          args: true,
+          msg: "Username sudah terdaftar, silahkan menggunakan username lain",
+        },
         validate: {
           notEmpty: {
             args: true,
-            msg: "Username cannot be empty",
+            msg: "Username tidak boleh kosong",
           },
           notNull: {
             args: true,
-            msg: "Username cannot be null",
-          },
-          isUnique: {
-            args: true,
-            msg: "Username must be unique",
+            msg: "Username tidak boleh kosong",
           },
         },
       },
       email: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: {
+          args: true,
+          msg: "Email sudah terdaftar, silahkan gunakan alamat email lain",
+        },
         validate: {
           notEmpty: {
             args: true,
-            msg: "Email cannot be empty",
+            msg: "Email tidak boleh kosong",
           },
           notNull: {
             args: true,
-            msg: "Email cannot be null",
+            msg: "Email tidak boleh kosong",
           },
           isEmail: {
             args: true,
-            msg: "Email must be a valid email",
+            msg: "Alamat email tidak valid",
           },
         },
       },
@@ -64,11 +68,11 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notEmpty: {
             args: true,
-            msg: "Password cannot be empty",
+            msg: "Password tidak boleh kosong",
           },
           notNull: {
             args: true,
-            msg: "Password cannot be null",
+            msg: "Password tidak boleh kosong",
           },
         },
       },
