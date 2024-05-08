@@ -126,6 +126,8 @@ const deleteUser = async (req, res, next) => {
     const { id } = req.params;
     const user = await User.findByPk(id);
 
+    // return res.json(user);
+
     if (!user) {
       return res.status(404).json({
         message: "Data pengguna tidak ditemukan",
